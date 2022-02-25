@@ -97,19 +97,14 @@ class ServiciosController extends Controller
             'precioServicio'=>'required|integer|max:9999999,min:0',
 
         ];
-
         $msje=[
             'required'=>':Attribute es requerido para modificar',
-
-
         ];
         if ($request->Hasfile('fotoServicio')) {
             $atributos=['fotoServicio'=>'required|max:10000|mimes:jpeg,png,jpg',];
             $msje=['fotoServicio.required'=>'La foto es requerida'];
         }
-
         $this->validate($request,$atributos,$msje);
-
         $datosServicio = request()->except(['_token','_method']);
 
         if ($request->Hasfile('fotoServicio')) {
